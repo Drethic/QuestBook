@@ -25,6 +25,8 @@ public class questBook extends Item{
         return false;
     }
     
+	@Override
+    @SideOnly(Side.CLIENT)
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
     {
     	if(world.isRemote)
