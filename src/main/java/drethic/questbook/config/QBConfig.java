@@ -2,25 +2,22 @@ package drethic.questbook.config;
 
 import java.io.File;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import drethic.questbook.QuestBook;
+import drethic.questbook.logger.QBLogger;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
 public class QBConfig {
 	public static Configuration qbconfig;
 	public static QBConfig instance;
-	public static final Logger logger = LogManager.getLogger(QuestBook.MODID);
-	
+
 	public static boolean spawnWithBook;
 	public static boolean disablePartyNotifications;
 	public static boolean disableQuestNotifications;
 	
 	public static final void init(FMLPreInitializationEvent e) {
-		logger.info("Loading config file.");
+		QBLogger.logger.info("Loading config file.");
 		qbconfig = new Configuration(new File(e.getModConfigurationDirectory().getAbsolutePath() + "/betterquesting/questbook.cfg"));
 		qbconfig.load();
 
