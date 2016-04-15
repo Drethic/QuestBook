@@ -2,6 +2,7 @@ package drethic.questbook.item;
 
 import betterquesting.client.gui.GuiHome;
 import betterquesting.core.BetterQuesting;
+import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import drethic.questbook.QuestBook;
@@ -44,5 +45,4 @@ public class questBook extends Item{
     {
 		return false;
     }
-	
 }
