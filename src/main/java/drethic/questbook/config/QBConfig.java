@@ -24,8 +24,8 @@ public class QBConfig {
 		qbconfig.addCustomCategoryComment(qbconfig.CATEGORY_GENERAL, "General options for the Quest Book mod.");
 
 		spawnWithBook = configBoolOption(qbconfig.CATEGORY_GENERAL, "spawnWithBook", false, "Enable this option so new players will spawn with a Quest Book. Default: false");
-		disablePartyNotifications = configBoolOption(qbconfig.CATEGORY_GENERAL, "disablePartyNotifications", false, "[WIP]Disable party notifications.  Default: false");
-		disableQuestNotifications = configBoolOption(qbconfig.CATEGORY_GENERAL, "disableQuestNotifications", false, "[WIP]Disable quest notifications.  Default: false");
+		disablePartyNotifications = configBoolOption(qbconfig.CATEGORY_GENERAL, "disablePartyNotifications", false, "[NYI]Disable party notifications.  Default: false");
+		disableQuestNotifications = configBoolOption(qbconfig.CATEGORY_GENERAL, "disableQuestNotifications", false, "[NYI]Disable quest notifications.  Default: false");
 		
 		qbconfig.save();
 	}

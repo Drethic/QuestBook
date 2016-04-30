@@ -14,11 +14,14 @@ import net.minecraft.world.World;
 
 public class questBook extends Item{
 	
+	public static boolean hasEffect;
+	
 	public questBook()
     {
     	this.setTextureName(QuestBook.MODID + ":questBook1-labled");
     	this.setUnlocalizedName("questBook");
     	this.setCreativeTab(BetterQuesting.tabQuesting);
+    	hasEffect = false;
     }
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
@@ -43,6 +46,6 @@ public class questBook extends Item{
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack)
     {
-		return false;
+		return hasEffect;
     }
 }
