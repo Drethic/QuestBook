@@ -12,29 +12,25 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class questBook extends Item{
+public class ItemQuestBook extends Item {
 	
 	public static boolean hasEffect;
 	
-	public questBook()
-    {
-    	this.setTextureName(QuestBook.MODID + ":questBook1-labled");
-    	this.setUnlocalizedName("questBook");
+	public ItemQuestBook() {
+    	this.setTextureName(QuestBook.MODID + ":questBook");
+    	this.setUnlocalizedName("ItemQuestBook");
     	this.setCreativeTab(BetterQuesting.tabQuesting);
     	hasEffect = false;
     }
 
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ)
-    {
+	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         return false;
     }
     
 	@Override
     @SideOnly(Side.CLIENT)
-    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)
-    {
-    	if(world.isRemote)
-    	{
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+    	if(world.isRemote) {
     		Minecraft mc = Minecraft.getMinecraft();
 			mc.displayGuiScreen(new GuiHome(mc.currentScreen));
     	}
@@ -44,8 +40,7 @@ public class questBook extends Item{
     
     @Override
     @SideOnly(Side.CLIENT)
-    public boolean hasEffect(ItemStack stack)
-    {
+    public boolean hasEffect(ItemStack stack) {
 		return hasEffect;
     }
 }

@@ -29,7 +29,7 @@ public enum FMLEventHandler {
 
         if (!persistent.hasKey(NBT_KEY)) {
             persistent.setBoolean(NBT_KEY, true);
-            event.player.inventory.addItemStackToInventory(new ItemStack(QBItems.questBook));
+            event.player.inventory.addItemStackToInventory(new ItemStack(QBItems.ItemQuestBook));
         }
     }
 }
