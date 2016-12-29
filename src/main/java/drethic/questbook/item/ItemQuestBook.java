@@ -1,6 +1,8 @@
 package drethic.questbook.item;
 
 import betterquesting.client.gui.GuiHome;
+import betterquesting.client.gui.GuiQuestLinesMain;
+import betterquesting.api.storage.BQ_Settings;
 import betterquesting.core.BetterQuesting;
 import cpw.mods.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import cpw.mods.fml.relauncher.Side;
@@ -30,10 +32,12 @@ public class ItemQuestBook extends Item {
 	@Override
     @SideOnly(Side.CLIENT)
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-    	if(world.isRemote) {
-    		Minecraft mc = Minecraft.getMinecraft();
+		Minecraft mc = Minecraft.getMinecraft();
+		if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
+			mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
+		} else {
 			mc.displayGuiScreen(new GuiHome(mc.currentScreen));
-    	}
+		}
     	
         return stack;
     }

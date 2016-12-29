@@ -9,13 +9,13 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import drethic.questbook.proxy.CommonProxy;
 
-@Mod(modid = QuestBook.MODID, name = QuestBook.MODNAME, version = QuestBook.VERSION, dependencies = "required-after:betterquesting@[1.0.23,)")
+@Mod(modid = QuestBook.MODID, name = QuestBook.MODNAME, version = QuestBook.VERSION, dependencies = "required-after:betterquesting@[2.0.190,)")
 public class QuestBook {
 
 	
     public static final String MODID = "questbook";
     public static final String MODNAME = "Better Questing Quest Book";
-    public static final String VERSION = "1.2.0-1.7.10";
+    public static final String VERSION = "2.0.0-1.7.10";
         
     @Instance("MODID")
     public static QuestBook instance = new QuestBook();
