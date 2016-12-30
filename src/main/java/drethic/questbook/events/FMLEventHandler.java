@@ -1,12 +1,12 @@
 package drethic.questbook.events;
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.PlayerEvent;
 import drethic.questbook.config.QBConfig;
 import drethic.questbook.item.QBItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 public enum FMLEventHandler {
 
@@ -29,7 +29,7 @@ public enum FMLEventHandler {
 
         if (!persistent.hasKey(NBT_KEY)) {
             persistent.setBoolean(NBT_KEY, true);
-            event.player.inventory.addItemStackToInventory(new ItemStack(QBItems.ItemQuestBook));
+            event.player.inventory.addItemStackToInventory(new ItemStack(QBItems.itemQuestBook));
         }
     }
 }

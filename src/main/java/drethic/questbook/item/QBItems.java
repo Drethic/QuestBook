@@ -1,12 +1,18 @@
 package drethic.questbook.item;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 public final class QBItems {
-    public static Item ItemQuestBook = new ItemQuestBook();
+    public static ItemQuestBook itemQuestBook;
     
     public static final void init() {
-    	GameRegistry.registerItem(ItemQuestBook, "ItemQuestBook");
+    	itemQuestBook = new ItemQuestBook();
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public static final void clientInit() {
+    	itemQuestBook.initModel();
     }
 }
