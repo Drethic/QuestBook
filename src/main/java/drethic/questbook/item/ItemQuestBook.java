@@ -33,7 +33,7 @@ public class ItemQuestBook extends Item {
 	
 	@SideOnly(Side.CLIENT)
 	public void initModel() {
-		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(QuestBook.MODID + ":questBook"));
+		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(QuestBook.MODID + ":" + this.getUnlocalizedName().substring(5), "inventory"));
 	}
 
 	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
