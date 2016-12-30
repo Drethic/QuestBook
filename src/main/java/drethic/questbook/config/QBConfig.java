@@ -2,7 +2,7 @@ package drethic.questbook.config;
 
 import java.io.File;
 
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import drethic.questbook.QuestBook;
 import drethic.questbook.logger.QBLogger;
 import net.minecraftforge.common.config.Configuration;
@@ -32,7 +32,7 @@ public class QBConfig {
 	
 	public static boolean configBoolOption(String section, String name, boolean defaultValue, String comment) {
 		Property spawnWithBookProperty = qbconfig.get(section, name, defaultValue);
-		spawnWithBookProperty.comment = comment;
+		spawnWithBookProperty.setComment(comment);
 		return spawnWithBookProperty.getBoolean(defaultValue);
 	}
 }

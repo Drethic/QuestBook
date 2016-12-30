@@ -1,33 +1,31 @@
 buildscript {
     repositories {
-        mavenCentral()
-        maven {
-            name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
     }
 }
+apply plugin: 'net.minecraftforge.gradle.forge'
 
-apply plugin: 'forge'
-
-version = "1.2.0-1.7.10"
-group= "drethic.questbook" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "2.0.0-1.10"
+group= "drethic.questbook"
 archivesBaseName = "questbook"
 
+sourceCompatibility = targetCompatibility = "1.8" // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
 minecraft {
-    version = "1.7.10-10.13.4.1448-1.7.10"
+    version = "1.10.2-12.18.3.2185"
     runDir = "eclipse"
+    mappings = "snapshot_20161111"
 }
 
 dependencies {
-    compile files("dependencies/BetterQuesting-core.jar")
+    compile files("dependencies/BetterQuesting-core-2.3.195.jar")
 }
 
 processResources
@@ -49,7 +47,7 @@ task deobfJar(type: Jar) {
         from sourceSets.main.output
         appendix = 'deobf'
 }
- 
+
 artifacts {
         archives deobfJar
 }
