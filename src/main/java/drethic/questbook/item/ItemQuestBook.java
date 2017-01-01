@@ -1,5 +1,6 @@
 package drethic.questbook.item;
 
+import betterquesting.api.client.gui.GuiScreenThemed;
 import betterquesting.api.storage.BQ_Settings;
 import betterquesting.client.gui.GuiHome;
 import betterquesting.client.gui.GuiQuestLinesMain;
@@ -24,6 +25,7 @@ public class ItemQuestBook extends Item {
 	public static boolean hasEffect;
 	
 	public ItemQuestBook() {
+		super();
     	setRegistryName("ItemQuestBook");
     	setUnlocalizedName("ItemQuestBook");
     	setCreativeTab(BetterQuesting.tabQuesting);
