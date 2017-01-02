@@ -49,15 +49,8 @@ public class ItemQuestBook extends Item {
     @SideOnly(Side.CLIENT)
     public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
     	if (world.isRemote) {
-    		switch(hand) {
-    			case OFF_HAND:
-    				if (null != player.inventory.getCurrentItem() && player.inventory.getCurrentItem().getItem() == player.inventory.offHandInventory[0].getItem()) {
-    					return new ActionResult(EnumActionResult.PASS, stack);
-    				}
-    				break;
-
-    			default:
-    				break;
+    		if (hand.name() == "OFF_HAND" && null != player.inventory.getCurrentItem() && player.inventory.getCurrentItem().getItem() == player.inventory.offHandInventory[0].getItem()) {
+    			return new ActionResult(EnumActionResult.PASS, stack);
     		}
 			Minecraft mc = Minecraft.getMinecraft();
 			if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
