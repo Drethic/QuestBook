@@ -7,9 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class CraftQuestBook {
-	public static final void init() {
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(QBItems.ItemQuestBook), new Object[] {
-			Items.book, "stickWood"
-		}));
-	}
+    public static final void init() {
+        GameRegistry.addRecipe(
+                new ShapelessOreRecipe(new ItemStack(QBItems.ItemQuestBook), new Object[] { Items.book, "stickWood" }));
+    }
 }
