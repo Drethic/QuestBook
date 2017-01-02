@@ -1,5 +1,6 @@
 package drethic.questbook.item;
 
+import betterquesting.api.client.gui.GuiScreenThemed;
 import betterquesting.api.storage.BQ_Settings;
 import betterquesting.client.gui.GuiHome;
 import betterquesting.client.gui.GuiQuestLinesMain;
@@ -24,6 +25,7 @@ public class ItemQuestBook extends Item {
 	public static boolean hasEffect;
 	
 	public ItemQuestBook() {
+		super();
     	setRegistryName("ItemQuestBook");
     	setUnlocalizedName("ItemQuestBook");
     	setCreativeTab(BetterQuesting.tabQuesting);
@@ -43,14 +45,16 @@ public class ItemQuestBook extends Item {
     @Override
     @SideOnly(Side.CLIENT)
     public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-		Minecraft mc = Minecraft.getMinecraft();
-		if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
-			mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
-		} else {
-			mc.displayGuiScreen(new GuiHome(mc.currentScreen));
-		}
+    	if (world.isRemote) {
+			Minecraft mc = Minecraft.getMinecraft();
+			if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
+				mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
+			} else {
+				mc.displayGuiScreen(new GuiHome(mc.currentScreen));
+			}
+    	}
     	
-		return new ActionResult<>(EnumActionResult.SUCCESS, stack);
+		return new ActionResult(EnumActionResult.PASS, stack);
     }
     
     @Override
