@@ -1,11 +1,13 @@
 package drethic.questbook.item;
 
-import betterquesting.api.client.gui.GuiScreenThemed;
+import org.apache.commons.lang3.EnumUtils;
+
 import betterquesting.api.storage.BQ_Settings;
 import betterquesting.client.gui.GuiHome;
 import betterquesting.client.gui.GuiQuestLinesMain;
 import betterquesting.core.BetterQuesting;
 import drethic.questbook.QuestBook;
+import drethic.questbook.logger.QBLogger;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,6 +24,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemQuestBook extends Item {
 	
+	private static final String OFF_HAND = "OFF_HAND";
 	public static boolean hasEffect;
 	
 	public ItemQuestBook() {
@@ -46,6 +49,16 @@ public class ItemQuestBook extends Item {
     @SideOnly(Side.CLIENT)
     public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
     	if (world.isRemote) {
+    		switch(hand) {
+    			case OFF_HAND:
+    				if (null != player.inventory.getCurrentItem() && player.inventory.getCurrentItem().getItem() == player.inventory.offHandInventory[0].getItem()) {
+    					return new ActionResult(EnumActionResult.PASS, stack);
+    				}
+    				break;
+
+    			default:
+    				break;
+    		}
 			Minecraft mc = Minecraft.getMinecraft();
 			if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
 				mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
