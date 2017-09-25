@@ -1,18 +1,19 @@
 package drethic.questbook.item;
 
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.registries.IForgeRegistry;
+import drethic.questbook.QuestBook;
+import drethic.questbook.item.*;
 
-public final class QBItems {
-    public static ItemQuestBook itemQuestBook;
-    
-    public static final void init() {
-    	itemQuestBook = new ItemQuestBook();
+public class QBItems {
+
+    public static ItemQuestBook questbook = new ItemQuestBook();
+
+    public static void register(IForgeRegistry<Item> registry) {
+        registry.register(questbook);
     }
-    
-    @SideOnly(Side.CLIENT)
-    public static final void clientInit() {
-    	itemQuestBook.initModel();
+
+    public static void registerModels() {
+        questbook.registerItemModel();
     }
 }

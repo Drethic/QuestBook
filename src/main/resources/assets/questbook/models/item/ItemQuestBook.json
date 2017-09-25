@@ -1,6 +1,6 @@
 {
     "parent": "item/generated",
     "textures": {
-        "layer0": "questbook:items/ItemQuestBook"
+        "layer0": "questbook:items/itemquestbook"
     }
 }

@@ -21,45 +21,45 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemQuestBook extends Item {
-	
-	public static boolean hasEffect;
-	
-	public ItemQuestBook() {
-		super();
-    	setRegistryName("ItemQuestBook");
-    	setUnlocalizedName("ItemQuestBook");
-    	setCreativeTab(BetterQuesting.tabQuesting);
-    	GameRegistry.register(this);
-    	hasEffect = false;
-    }
-	
-	@SideOnly(Side.CLIENT)
-	public void initModel() {
-		ModelLoader.setCustomModelResourceLocation(this, 0, new ModelResourceLocation(QuestBook.MODID + ":" + this.getUnlocalizedName().substring(5), "inventory"));
-	}
 
-	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
+    public static boolean hasEffect;
+    protected String name;
+
+    public ItemQuestBook() {
+        super();
+        setUnlocalizedName("itemquestbook");
+        setRegistryName("itemquestbook");
+        setCreativeTab(BetterQuesting.tabQuesting);
+        hasEffect = false;
+    }
+
+    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
         return false;
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
-    public ActionResult<ItemStack> onItemRightClick(ItemStack stack, World world, EntityPlayer player, EnumHand hand) {
-    	if (world.isRemote) {
-			Minecraft mc = Minecraft.getMinecraft();
-			if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
-				mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
-			} else {
-				mc.displayGuiScreen(new GuiHome(mc.currentScreen));
-			}
-    	}
-    	
-		return new ActionResult(EnumActionResult.PASS, stack);
+    public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.getHeldItem(hand);
+        if (world.isRemote) {
+            Minecraft mc = Minecraft.getMinecraft();
+            if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
+                mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
+            } else {
+                mc.displayGuiScreen(new GuiHome(mc.currentScreen));
+            }
+        }
+
+        return new ActionResult(EnumActionResult.PASS, stack);
     }
-    
+
+    public void registerItemModel() {
+        QuestBook.proxy.registerItemRenderer(this, 0, "ItemQuestBook");
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack stack) {
-		return hasEffect;
+        return hasEffect;
     }
 }

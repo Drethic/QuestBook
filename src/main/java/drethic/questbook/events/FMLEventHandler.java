@@ -2,6 +2,7 @@ package drethic.questbook.events;
 
 import drethic.questbook.config.QBConfig;
 import drethic.questbook.item.QBItems;
+import drethic.questbook.logger.QBLogger;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -29,7 +30,7 @@ public enum FMLEventHandler {
 
         if (!persistent.hasKey(NBT_KEY)) {
             persistent.setBoolean(NBT_KEY, true);
-            event.player.inventory.addItemStackToInventory(new ItemStack(QBItems.itemQuestBook));
+            event.player.inventory.addItemStackToInventory(new ItemStack(QBItems.questbook));
         }
     }
 }
