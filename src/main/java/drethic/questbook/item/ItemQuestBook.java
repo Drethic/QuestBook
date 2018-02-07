@@ -2,7 +2,7 @@ package drethic.questbook.item;
 
 import org.apache.commons.lang3.EnumUtils;
 import betterquesting.api.storage.BQ_Settings;
-import betterquesting.client.gui.GuiHome;
+import betterquesting.client.gui2.GuiHome;
 import betterquesting.client.gui.GuiQuestLinesMain;
 import betterquesting.core.BetterQuesting;
 import drethic.questbook.QuestBook;
