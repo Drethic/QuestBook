@@ -21,7 +21,7 @@ public class QuestBook {
 
     public static final String modId = "questbook";
     public static final String name = "Better Questing Quest Book";
-    public static final String version = "3.0.0-1.12.1";
+    public static final String version = "3.0.1-1.12.1";
 
     @Mod.Instance(modId)
     public static QuestBook instance;
