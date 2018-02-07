@@ -1,6 +1,6 @@
 package drethic.questbook.item;
 
-import betterquesting.api.client.gui.GuiScreenThemed;
+import org.apache.commons.lang3.EnumUtils;
 import betterquesting.api.storage.BQ_Settings;
 import betterquesting.client.gui.GuiHome;
 import betterquesting.client.gui.GuiQuestLinesMain;
@@ -42,6 +42,9 @@ public class ItemQuestBook extends Item {
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.getHeldItem(hand);
         if (world.isRemote) {
+            if ( hand.name() == "OFF_HAND" && null != player.inventory.getCurrentItem() && player.inventory.getCurrentItem().getItem() == player.inventory.offHandInventory.get(0).getItem()) {
+                return new ActionResult(EnumActionResult.PASS, stack);
+            }
             Minecraft mc = Minecraft.getMinecraft();
             if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
                 mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
