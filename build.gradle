@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "3.1.0-1.12"
+version = "3.1.1-1.12"
 group= "drethic.questbook"
 archivesBaseName = "questbook"
 
@@ -25,7 +25,7 @@ minecraft {
 }
 
 dependencies {
-    compile files("dependencies/BetterQuesting-core-3.5.238.jar")
+    compile files("dependencies/BetterQuesting-core-3.5.242.jar")
 }
 
 processResources

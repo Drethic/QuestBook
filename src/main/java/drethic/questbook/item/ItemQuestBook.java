@@ -3,7 +3,6 @@ package drethic.questbook.item;
 import org.apache.commons.lang3.EnumUtils;
 import betterquesting.api.storage.BQ_Settings;
 import betterquesting.client.gui2.GuiHome;
-import betterquesting.client.gui.GuiQuestLinesMain;
 import betterquesting.core.BetterQuesting;
 import drethic.questbook.QuestBook;
 import net.minecraft.client.Minecraft;
@@ -46,8 +45,8 @@ public class ItemQuestBook extends Item {
                 return new ActionResult(EnumActionResult.PASS, stack);
             }
             Minecraft mc = Minecraft.getMinecraft();
-            if(BQ_Settings.useBookmark && GuiQuestLinesMain.bookmarked != null) {
-                mc.displayGuiScreen(GuiQuestLinesMain.bookmarked);
+            if(BQ_Settings.useBookmark && GuiHome.bookmark != null) {
+                mc.displayGuiScreen(GuiHome.bookmark);
             } else {
                 mc.displayGuiScreen(new GuiHome(mc.currentScreen));
             }

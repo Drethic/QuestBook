@@ -16,12 +16,12 @@ import drethic.questbook.item.QBItems;
 import drethic.questbook.proxy.CommonProxy;
 import drethic.questbook.recipe.QBRecipes;
 
-@Mod(modid = QuestBook.modId, name = QuestBook.name, version = QuestBook.version, dependencies = "required-after:betterquesting@[3.5.238,)")
+@Mod(modid = QuestBook.modId, name = QuestBook.name, version = QuestBook.version, dependencies = "required-after:betterquesting@[3.5.242,)")
 public class QuestBook {
 
     public static final String modId = "questbook";
     public static final String name = "Better Questing Quest Book";
-    public static final String version = "3.1.0-1.12";
+    public static final String version = "3.1.1-1.12";
 
     @Mod.Instance(modId)
     public static QuestBook instance;
